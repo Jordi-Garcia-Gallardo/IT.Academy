@@ -12,27 +12,18 @@ function correos () {
     var res = strpull.split(" ") 
     var res1 = res.filter(word => word.length > 1 && word.includes("@")); // Eliminar @ sueltos y palabras que no contengan @. 
     
-
-    /* otra solucion a eliminar duplicados, con filter crea otro array con elementos de res1 
-       con la funcion onlyunique mira si los valores dados son los primeros index o en ocurrir sino es asi son repetidos.
     var result = res1.filter(onlyUnique);
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;}
-    */ 
-
-    let result = res1.reduce((acc,item)=>{  
+  
+    /* let result = res1.reduce((acc,item)=>{  
         if(!acc.includes(item)){
             acc.push(item);
         }
         return acc;
-    },[]) /* eliminar duplicados -- con reduce ejecuta acc en cada elemento, y les hace push si no */
-        
-         
+    },[]) */ /* otra manera de eliminar duplicados -- con reduce ejecuta acc en cada elemento, y les hace push si no */
+            
     console.log(result);
 }
-
-var result = res1.filter(onlyUnique);
-    function onlyUnique(value, index, self) {
-        return self.indexOf(value) === index;}
 
 correos();
